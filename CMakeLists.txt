@@ -14,8 +14,12 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 # Add the include directory
 include_directories(${CMAKE_SOURCE_DIR}/RedBean/src)
 
+# source file
+file(GLOB_RECURSE REDBEAN_SRC "RedBean/src/*.cpp")
+file(GLOB_RECURSE SANDBOX_SRC "Sandbox/src/*.cpp")
+
 # Add the executable
-add_executable(SandboxApp Sandbox/src/SandboxApp.cpp)
+add_executable(SandboxApp ${REDBEAN_SRC} ${SANDBOX_SRC})
 
 # Set the output directory for object files
 set_target_properties(SandboxApp PROPERTIES

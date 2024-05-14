@@ -12,7 +12,6 @@ namespace RedBean
 
     void Application::run()
     {
-        while (true)
-            ;
+        std::cout << "Welcome to RedBean Engine!\n";
     }
 }

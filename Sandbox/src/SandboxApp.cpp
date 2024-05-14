@@ -13,9 +13,7 @@ public:
     }
 };
 
-int main()
+RedBean::Application* RedBean::CreateApplication()
 {
-    return 0;
+    return new Sandbox();
 }
-
-                    

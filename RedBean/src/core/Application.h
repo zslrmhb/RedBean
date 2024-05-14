@@ -1,5 +1,9 @@
 #pragma once
 
+#include <iostream>
+
+#include "Core.h"
+
 namespace RedBean
 {
     class Application
@@ -10,4 +14,6 @@ namespace RedBean
 
         void run();
     };
+
+    Application *CreateApplication();
 }
