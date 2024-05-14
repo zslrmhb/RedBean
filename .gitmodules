@@ -1,0 +1,3 @@
+[submodule "RedBean/3rdparty/spdlog"]
+	path = RedBean/3rdparty/spdlog
+	url = https://github.com/gabime/spdlog
