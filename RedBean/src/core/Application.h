@@ -15,5 +15,5 @@ namespace RedBean
         void run();
     };
 
-    Application *CreateApplication();
+    Application *create_application();
 }

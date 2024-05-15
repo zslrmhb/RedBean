@@ -13,7 +13,7 @@ public:
     }
 };
 
-RedBean::Application* RedBean::CreateApplication()
+RedBean::Application* RedBean::create_application()
 {
     return new Sandbox();
 }

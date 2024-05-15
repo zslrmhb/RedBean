@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "RedBean/3rdparty/spdlog",
+		"source" : "RedBean/3rdparty/spdlog"
+	}
+}
