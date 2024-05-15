@@ -3,17 +3,17 @@
 class Sandbox : public RedBean::Application
 {
 public:
-    Sandbox()
-    {
+        Sandbox()
+        {
 
-    }
-    ~Sandbox()
-    {
+        }
+        ~Sandbox()
+        {
 
-    }
+        }
 };
 
 RedBean::Application* RedBean::create_application()
 {
-    return new Sandbox();
+        return new Sandbox();
 }

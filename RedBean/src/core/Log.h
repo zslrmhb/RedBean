@@ -5,27 +5,27 @@
 
 namespace RedBean
 {
-    class Log
-    {
-    public:
-        // Log();
-        // ~Log();
-
-        static void init();
-
-        inline static std::shared_ptr<spdlog::logger> &get_corelogger()
+        class Log
         {
-            return s_corelogger;
-        }
-        inline static std::shared_ptr<spdlog::logger> &get_clientlogger()
-        {
-            return s_clientlogger;
-        }
+        public:
+                // Log();
+                // ~Log();
 
-    private:
-        static std::shared_ptr<spdlog::logger> s_corelogger;
-        static std::shared_ptr<spdlog::logger> s_clientlogger;
-    };
+                static void init();
+
+                inline static std::shared_ptr<spdlog::logger>& get_corelogger()
+                {
+                        return s_corelogger;
+                }
+                inline static std::shared_ptr<spdlog::logger>& get_clientlogger()
+                {
+                        return s_clientlogger;
+                }
+
+        private:
+                static std::shared_ptr<spdlog::logger> s_corelogger;
+                static std::shared_ptr<spdlog::logger> s_clientlogger;
+        };
 }
 
 // Core log macros

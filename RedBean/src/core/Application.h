@@ -2,18 +2,20 @@
 
 #include <iostream>
 
-#include "Core.h"
+#include "core/Core.h"
+
+#include "function/events/KeyEvent.h"
 
 namespace RedBean
 {
-    class Application
-    {
-    public:
-        Application();
-        virtual ~Application();
+        class Application
+        {
+        public:
+                Application();
+                virtual ~Application();
 
-        void run();
-    };
+                void run();
+        };
 
-    Application *create_application();
+        Application* create_application();
 }
