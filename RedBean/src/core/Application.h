@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "core/Core.h"
+#include "core/Log.h"
 
 #include "function/events/ApplicationEvent.h"
 
