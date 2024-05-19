@@ -8,7 +8,8 @@ namespace RedBean
         class MouseMovedEvent : public Event
         {
         public:
-                MouseMovedEvent(const float x, const float y) : m_mouse_x(x), m_mouse_y(y)
+                MouseMovedEvent(const float x, const float y) :
+                        m_mouse_x(x), m_mouse_y(y)
                 {
                 }
 
@@ -22,7 +23,7 @@ namespace RedBean
                 }
 
                 EVENT_CLASS_TYPE(MOUSE_MOVED)
-                        EVENT_CLASS_CATEGORY(EVENT_CATEGORY_MOUSE | EVENT_CATEGORY_INPUT)
+                EVENT_CLASS_CATEGORY(EVENT_CATEGORY_MOUSE | EVENT_CATEGORY_INPUT)
 
         private:
                 float m_mouse_x, m_mouse_y;
@@ -31,7 +32,8 @@ namespace RedBean
         class MouseScrolledEvent : public Event
         {
         public:
-                MouseScrolledEvent(const float x_offset, const float y_offset) : m_x_offset(x_offset), m_y_offset(y_offset)
+                MouseScrolledEvent(const float x_offset, const float y_offset) :
+                        m_x_offset(x_offset), m_y_offset(y_offset)
                 {
                 }
 
@@ -45,7 +47,7 @@ namespace RedBean
                 }
 
                 EVENT_CLASS_TYPE(MOUSE_SCROLLED)
-                        EVENT_CLASS_CATEGORY(EVENT_CATEGORY_MOUSE | EVENT_CATEGORY_INPUT)
+                EVENT_CLASS_CATEGORY(EVENT_CATEGORY_MOUSE | EVENT_CATEGORY_INPUT)
         private:
                 float m_x_offset, m_y_offset;
         };
@@ -57,7 +59,9 @@ namespace RedBean
                 {
                         return m_button;
                 }
-                EVENT_CLASS_CATEGORY(EVENT_CATEGORY_MOUSE | EVENT_CATEGORY_INPUT | EVENT_CATEGORY_MOUSE_BUTTON)
+                EVENT_CLASS_CATEGORY(EVENT_CATEGORY_MOUSE |
+                                     EVENT_CATEGORY_INPUT |
+                                     EVENT_CATEGORY_MOUSE_BUTTON)
         protected:
                 MouseButtonEvent(const MouseCode button) : m_button(button)
                 {
@@ -69,7 +73,8 @@ namespace RedBean
         class MouseButtonPressedEvent : public MouseButtonEvent
         {
         public:
-                MouseButtonPressedEvent(const MouseCode button) : MouseButtonEvent(button)
+                MouseButtonPressedEvent(const MouseCode button) :
+                        MouseButtonEvent(button)
                 {
                 }
                 EVENT_CLASS_TYPE(MOUSE_BUTTON_PRESSED)
@@ -77,7 +82,8 @@ namespace RedBean
         class MouseButtonReleasedEvent : public MouseButtonEvent
         {
         public:
-                MouseButtonReleasedEvent(const MouseCode button) : MouseButtonEvent(button)
+                MouseButtonReleasedEvent(const MouseCode button) :
+                        MouseButtonEvent(button)
                 {
                 }
                 EVENT_CLASS_TYPE(MOUSE_BUTTON_RELEASED)

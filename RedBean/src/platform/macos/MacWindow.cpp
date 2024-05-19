@@ -29,13 +29,18 @@ namespace RedBean
                 {
                         int success = glfwInit();
                         s_GLFW_initialized = true;
-                        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-                        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-                        glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+                        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+                        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
+                        glfwWindowHint(GLFW_OPENGL_PROFILE,
+                                       GLFW_OPENGL_CORE_PROFILE);
                         glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
                 }
 
-                m_window = glfwCreateWindow(static_cast<int>(props.width), static_cast<int>(props.height), m_data.title.c_str(), nullptr, nullptr);
+                m_window = glfwCreateWindow(static_cast<int>(props.width),
+                        static_cast<int>(props.height),
+                        m_data.title.c_str(),
+                        nullptr,
+                        nullptr);
                 glfwMakeContextCurrent(m_window);
                 glfwSetWindowUserPointer(m_window, &m_data);
                 set_v_sync(true);

@@ -2,10 +2,10 @@
 
 #include "core/Window.h"
 
-// #ifdef __APPLE__
-// #define GL_SILENCE_DEPRECATION
+#ifdef __APPLE__
+#define GL_SILENCE_DEPRECATION
 #include <GLFW/glfw3.h>
-// #endif
+#endif
 
 namespace RedBean
 {
@@ -27,7 +27,8 @@ namespace RedBean
                 }
 
                 // Window Attributes
-                inline void set_event_callback(const event_callback_fn& callback) override
+                inline void set_event_callback\
+                        (const event_callback_fn& callback) override
                 {
                         m_data.event_callback = callback;
                 }

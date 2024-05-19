@@ -25,7 +25,8 @@ namespace RedBean
         class KeyPressedEvent : public KeyEvent
         {
         public:
-                KeyPressedEvent(const KeyCode keycode, bool is_repeat = false) : KeyEvent(keycode), m_is_repeat(is_repeat)
+                KeyPressedEvent(const KeyCode keycode, bool is_repeat = false) :
+                        KeyEvent(keycode), m_is_repeat(is_repeat)
                 {
                 }
 

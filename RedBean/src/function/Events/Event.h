@@ -42,7 +42,8 @@ namespace RedBean
                                 { return get_static_type(); }\
         virtual const char* get_name() const override { return #type; }
 
-#define EVENT_CLASS_CATEGORY(category) virtual int get_category_flags() const override { return category; }
+#define EVENT_CLASS_CATEGORY(category) virtual int get_category_flags()\
+                                       const override { return category; }
 
         class Event
         {

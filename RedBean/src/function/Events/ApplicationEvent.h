@@ -7,7 +7,8 @@ namespace RedBean
         class WindowResizeEvent : public Event
         {
         public:
-                WindowResizeEvent(unsigned int width, unsigned int height) : m_width(width), m_height(height)
+                WindowResizeEvent(unsigned int width, unsigned int height)
+                        : m_width(width), m_height(height)
                 {
                 }
 
