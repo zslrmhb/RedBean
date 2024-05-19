@@ -8,8 +8,8 @@ namespace RedBean
         {
                 m_window = std::unique_ptr<Window>(Window::create());
                 m_window->set_event_callback(std::bind(&Application::on_event,
-                                                        this,
-                                                        std::placeholders::_1));
+                                                       this,
+                                                       std::placeholders::_1));
         }
 
         Application::~Application()

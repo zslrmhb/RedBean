@@ -10,7 +10,10 @@ namespace RedBean
                 uint32_t width;
                 uint32_t height;
 
-                WindowProps(const std::string& title = "RedBean Engine", uint32_t width = 400, uint32_t height = 400) : title(title), width(width), height(height)
+                WindowProps(const std::string& title = "RedBean Engine",
+                                      uint32_t width = 400,
+                                     uint32_t height = 400) :
+                        title(title), width(width), height(height)
                 {
                 }
         };
@@ -29,7 +32,7 @@ namespace RedBean
                 virtual uint32_t get_height() const = 0;
 
                 virtual void set_event_callback
-                        (const event_callback_fn& callback) = 0;
+                (const event_callback_fn& callback) = 0;
                 virtual void set_v_sync(bool enabled) = 0;
                 virtual bool is_v_sync() const = 0;
 

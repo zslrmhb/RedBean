@@ -22,7 +22,7 @@ namespace RedBean
                 }
 
                 EVENT_CLASS_TYPE(WINDOW_RESIZE)
-                        EVENT_CLASS_CATEGORY(EVENT_CATEGORY_APPLICATION)
+                EVENT_CLASS_CATEGORY(EVENT_CATEGORY_APPLICATION)
         private:
                 unsigned int m_width, m_height;
         };
@@ -33,7 +33,7 @@ namespace RedBean
                 WindowCloseEvent() = default;
 
                 EVENT_CLASS_TYPE(WINDOW_CLOSE)
-                        EVENT_CLASS_CATEGORY(EVENT_CATEGORY_APPLICATION)
+                EVENT_CLASS_CATEGORY(EVENT_CATEGORY_APPLICATION)
         };
 
         class AppTickEvent : public Event
@@ -42,7 +42,7 @@ namespace RedBean
                 AppTickEvent() = default;
 
                 EVENT_CLASS_TYPE(APP_TICK)
-                        EVENT_CLASS_CATEGORY(EVENT_CATEGORY_APPLICATION)
+                EVENT_CLASS_CATEGORY(EVENT_CATEGORY_APPLICATION)
         };
 
         class AppUpdateEvent : public Event
@@ -51,7 +51,7 @@ namespace RedBean
                 AppUpdateEvent() = default;
 
                 EVENT_CLASS_TYPE(APP_UPDATE)
-                        EVENT_CLASS_CATEGORY(EVENT_CATEGORY_APPLICATION)
+                EVENT_CLASS_CATEGORY(EVENT_CATEGORY_APPLICATION)
 
         };
 
@@ -61,6 +61,6 @@ namespace RedBean
                 AppRenderEvent() = default;
 
                 EVENT_CLASS_TYPE(APP_RENDER)
-                        EVENT_CLASS_CATEGORY(EVENT_CATEGORY_APPLICATION)
+                EVENT_CLASS_CATEGORY(EVENT_CATEGORY_APPLICATION)
         };
 }
