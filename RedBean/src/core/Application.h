@@ -4,6 +4,9 @@
 
 #include "core/Core.h"
 #include "core/Log.h"
+#include "core/Window.h"
+
+#include "platform/macos/MacWindow.h"
 
 #include "function/events/ApplicationEvent.h"
 
@@ -16,6 +19,9 @@ namespace RedBean
                 virtual ~Application();
 
                 void run();
+        private:
+                std::unique_ptr<Window> m_window;
+                bool m_running = true;
         };
 
         Application* create_application();
