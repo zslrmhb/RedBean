@@ -25,7 +25,7 @@ namespace RedBean
                 m_data.width = props.width;
                 m_data.height = props.height;
 
-                if (~s_GLFW_initialized)
+                if (!s_GLFW_initialized)
                 {
                         int success = glfwInit();
                         s_GLFW_initialized = true;
@@ -37,13 +37,117 @@ namespace RedBean
                 }
 
                 m_window = glfwCreateWindow(static_cast<int>(props.width),
-                        static_cast<int>(props.height),
-                        m_data.title.c_str(),
-                        nullptr,
-                        nullptr);
+                                            static_cast<int>(props.height),
+                                            m_data.title.c_str(),
+                                            nullptr,
+                                            nullptr);
                 glfwMakeContextCurrent(m_window);
                 glfwSetWindowUserPointer(m_window, &m_data);
                 set_v_sync(true);
+
+                // Set GLFW callbacks
+                glfwSetWindowSizeCallback(m_window, [](GLFWwindow* window,
+                                                               int width,
+                                                               int height)
+                {
+                        WindowData& data =
+                                *(WindowData*)glfwGetWindowUserPointer(window);
+                        data.width = width;
+                        data.height = height;
+                        WindowResizeEvent event(width, height);
+                        data.event_callback(event);
+                });
+
+                glfwSetWindowCloseCallback(m_window, [](GLFWwindow* window)
+                {
+                        WindowData& data =
+                                *(WindowData*)glfwGetWindowUserPointer(window);
+                        WindowCloseEvent event;
+                        data.event_callback(event);
+                });
+
+                glfwSetKeyCallback(m_window, [](GLFWwindow* window,
+                                                        int key,
+                                                        int scancode,
+                                                        int action,
+                                                        int mods)
+                {
+                        WindowData& data =
+                                *(WindowData*)glfwGetWindowUserPointer(window);
+
+                        switch (action)
+                        {
+                                case GLFW_PRESS:
+                                {
+                                        KeyPressedEvent event(key, 0);
+                                        data.event_callback(event);
+                                        break;
+                                }
+                                case GLFW_RELEASE:
+                                {
+                                        KeyReleasedEvent event(key);
+                                        data.event_callback(event);
+                                        break;
+                                }
+                                case GLFW_REPEAT:
+                                {
+                                        KeyPressedEvent event(key, 1);
+                                        data.event_callback(event);
+                                        break;
+                                }
+                        }
+                });
+
+                glfwSetMouseButtonCallback(m_window, [](GLFWwindow* window,
+                                                                int button,
+                                                                int action,
+                                                                int mods)
+                {
+                        WindowData& data =
+                                *(WindowData*)glfwGetWindowUserPointer(window);
+                        switch (action)
+                        {
+                                case GLFW_PRESS:
+                                {
+                                        MouseButtonPressedEvent event(button);
+                                        data.event_callback(event);
+                                        break;
+                                }
+
+                                case GLFW_RELEASE:
+                                {
+                                        MouseButtonReleasedEvent event(button);
+                                        data.event_callback(event);
+                                        break;
+                                }
+                        }
+                });
+
+                glfwSetScrollCallback(m_window, [](GLFWwindow* window,
+                                                        double x_offset,
+                                                        double y_offset)
+                {
+                        WindowData& data =
+                                *(WindowData*)glfwGetWindowUserPointer(window);
+
+                        MouseScrolledEvent event(static_cast<float>(x_offset),
+                                                 static_cast<float>(y_offset));
+                        data.event_callback(event);
+                });
+
+                glfwSetCursorPosCallback(m_window, [](GLFWwindow* window,
+                                                           double x_pos,
+                                                           double y_pos)
+                {
+                        WindowData& data =
+                                *(WindowData*)glfwGetWindowUserPointer(window);
+
+                        MouseMovedEvent event(static_cast<float>(x_pos),
+                                              static_cast<float>(y_pos));
+                        data.event_callback(event);
+
+                });
+
         }
 
         void MacWindow::shutdown()

@@ -1,6 +1,9 @@
 #pragma once 
 
 #include "core/Window.h"
+#include "function/events/ApplicationEvent.h"
+#include "function/events/MouseEvent.h"
+#include "function/events/KeyEvent.h"
 
 #ifdef __APPLE__
 #define GL_SILENCE_DEPRECATION

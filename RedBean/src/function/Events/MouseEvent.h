@@ -22,6 +22,14 @@ namespace RedBean
                         return m_mouse_y;
                 }
 
+                std::string to_string() const override
+                {
+                        std::stringstream ss;
+                        ss << "MouseMovedEvent: " << m_mouse_x << ", "
+                                                               << m_mouse_y;
+                        return ss.str();
+                }
+
                 EVENT_CLASS_TYPE(MOUSE_MOVED)
                 EVENT_CLASS_CATEGORY(EVENT_CATEGORY_MOUSE | EVENT_CATEGORY_INPUT)
 
@@ -44,6 +52,14 @@ namespace RedBean
                 float get_y_offset() const
                 {
                         return m_y_offset;
+                }
+
+                std::string to_string() const override
+                {
+                        std::stringstream ss;
+                        ss << "MouseScrolledEvent: " << get_x_offset() << ", "
+                                                     << get_y_offset();
+                        return ss.str();
                 }
 
                 EVENT_CLASS_TYPE(MOUSE_SCROLLED)
@@ -77,6 +93,14 @@ namespace RedBean
                         MouseButtonEvent(button)
                 {
                 }
+
+                std::string to_string() const override
+                {
+                        std::stringstream ss;
+                        ss << "MouseButtonPressedEvent: " << m_button;
+                        return ss.str();
+                }
+
                 EVENT_CLASS_TYPE(MOUSE_BUTTON_PRESSED)
         };
         class MouseButtonReleasedEvent : public MouseButtonEvent
@@ -86,6 +110,14 @@ namespace RedBean
                         MouseButtonEvent(button)
                 {
                 }
+
+                std::string to_string() const override
+                {
+                        std::stringstream ss;
+                        ss << "MouseButtonReleasedEvent: " << m_button;
+                        return ss.str();
+                }
+
                 EVENT_CLASS_TYPE(MOUSE_BUTTON_RELEASED)
         };
 

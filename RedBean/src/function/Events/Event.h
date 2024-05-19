@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <sstream>
 #include <functional>
 
 namespace RedBean
@@ -86,4 +87,9 @@ namespace RedBean
         private:
                 Event& m_event;
         };
+
+        inline std::ostream& operator<<(std::ostream& os, const Event& e)
+        {
+                return os << e.to_string();
+        }
 }

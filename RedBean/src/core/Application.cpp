@@ -18,7 +18,18 @@ namespace RedBean
 
         void Application::on_event(Event& e)
         {
+                EventDispatcher dispatcher(e);
+                dispatcher.dispatch<WindowCloseEvent>(std::bind(
+                                             &Application::on_window_close,
+                                             this,
+                                             std::placeholders::_1));
+                RB_CORE_INFO(e.to_string());
+        }
 
+        bool Application::on_window_close(WindowCloseEvent& e)
+        {
+                m_running = false;
+                return true;
         }
 
         void Application::run()

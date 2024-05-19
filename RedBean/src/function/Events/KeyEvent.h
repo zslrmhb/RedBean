@@ -34,6 +34,15 @@ namespace RedBean
                 {
                         return m_is_repeat;
                 }
+
+                std::string to_string() const override
+                {
+                        std::stringstream ss;
+                        ss << "KeyPressedEvent: " << m_keycode << " (repeat = "
+                                                  << m_is_repeat << ")";
+                        return ss.str();
+                }
+
                 EVENT_CLASS_TYPE(KEY_PRESSED)
         private:
                 bool m_is_repeat;
@@ -45,6 +54,14 @@ namespace RedBean
                 KeyReleasedEvent(const KeyCode keycode) : KeyEvent(keycode)
                 {
                 }
+
+                std::string to_string() const override
+                {
+                        std::stringstream ss;
+                        ss << "KeyReleasedEvent: " << m_keycode;
+                        return ss.str();
+                }
+
                 EVENT_CLASS_TYPE(KEY_RELEASED)
         private:
         };
@@ -54,6 +71,13 @@ namespace RedBean
         public:
                 KeyTypedEvent(const KeyCode keycode) : KeyEvent(keycode)
                 {
+                }
+
+                std::string to_string() const override
+                {
+                        std::stringstream ss;
+                        ss << "KeyTypedEvent: " << m_keycode;
+                        return ss.str();
                 }
 
                 EVENT_CLASS_TYPE(KEY_TYPED)

@@ -21,6 +21,15 @@ namespace RedBean
                         return m_height;
                 }
 
+                std::string to_string() const override
+                {
+                        std::stringstream ss;
+                        ss << "WindowResizeEvent: " << m_width
+                                                    << ", "
+                                                    << m_height;
+                        return ss.str();
+                }
+
                 EVENT_CLASS_TYPE(WINDOW_RESIZE)
                 EVENT_CLASS_CATEGORY(EVENT_CATEGORY_APPLICATION)
         private:

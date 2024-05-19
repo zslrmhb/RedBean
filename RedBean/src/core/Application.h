@@ -22,6 +22,8 @@ namespace RedBean
 
                 void on_event(Event& e);
         private:
+                bool on_window_close(WindowCloseEvent& e);
+                
                 std::unique_ptr<Window> m_window;
                 bool m_running = true;
         };
