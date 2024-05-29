@@ -42,6 +42,7 @@ namespace RedBean
                                             nullptr,
                                             nullptr);
                 glfwMakeContextCurrent(m_window);
+                int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
                 glfwSetWindowUserPointer(m_window, &m_data);
                 set_v_sync(true);
 

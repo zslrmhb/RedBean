@@ -1,7 +1,7 @@
 #pragma once
 
-#include "function/events/Event.h"
 #include "core/KeyCodes.h"
+#include "function/events/Event.h"
 
 namespace RedBean
 {

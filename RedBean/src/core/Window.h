@@ -11,8 +11,8 @@ namespace RedBean
                 uint32_t height;
 
                 WindowProps(const std::string& title = "RedBean Engine",
-                                      uint32_t width = 400,
-                                     uint32_t height = 400) :
+                                      uint32_t width = 800,
+                                     uint32_t height = 800) :
                         title(title), width(width), height(height)
                 {
                 }

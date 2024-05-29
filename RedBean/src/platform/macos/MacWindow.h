@@ -1,14 +1,16 @@
 #pragma once 
 
-#include "core/Window.h"
-#include "function/events/ApplicationEvent.h"
-#include "function/events/MouseEvent.h"
-#include "function/events/KeyEvent.h"
-
+// glad header MUST come first!
+#include <glad/glad.h>
 #ifdef __APPLE__
 #define GL_SILENCE_DEPRECATION
 #include <GLFW/glfw3.h>
 #endif
+
+#include "core/Window.h"
+#include "function/events/ApplicationEvent.h"
+#include "function/events/MouseEvent.h"
+#include "function/events/KeyEvent.h"
 
 namespace RedBean
 {
