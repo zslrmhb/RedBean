@@ -30,6 +30,10 @@ file(GLOB_RECURSE SANDBOX_SRC "Sandbox/src/*.cpp")
 # Add the executable
 add_executable(SandboxApp ${REDBEAN_SRC} ${SANDBOX_SRC})
 
+# Ensure GLFW uses Cocoa instead of Carbon
+set(GLFW_USE_OSX_CARBON OFF)
+set(GLFW_USE_OSX_COCOA ON)
+
 # Link spdlog library (if you use it as an external dependency)
 add_subdirectory(RedBean/3rdparty/spdlog)
 add_subdirectory(RedBean/3rdparty/GLFW)
