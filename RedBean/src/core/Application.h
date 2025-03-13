@@ -3,47 +3,48 @@
 #include <iostream>
 
 #include "core/Core.h"
+#include "core/LayerStack.h"
 #include "core/Log.h"
 #include "core/Window.h"
-#include "core/LayerStack.h"
-		
-#include "function/events/Event.h"
+
 #include "function/events/ApplicationEvent.h"
+#include "function/events/Event.h"
 
 #include "platform/macos/MacWindow.h"
 
 namespace RedBean
 {
-		class Application
-		{
-		public:
-				Application();
-				virtual ~Application();
+class Application
+{
+  public:
+    Application();
+    virtual ~Application();
 
-				void run();
+    void run();
 
-				void on_event(Event& e);
+    void on_event(Event &e);
 
-				void push_layer(Layer* layer);
-				void push_overlay(Layer* layer);
+    void push_layer(Layer *layer);
+    void push_overlay(Layer *layer);
 
-				inline static Application& get()
-				{
-						return *s_instance;
-				}
-				inline Window& get_window()
-				{
-						return *m_window;
-				}
-		private:
-				bool on_window_close(WindowCloseEvent& e);
-				
-				std::unique_ptr<Window> m_window;
-				bool m_running = true;
-				LayerStack m_layerstack;
+    inline static Application &get()
+    {
+        return *s_instance;
+    }
+    inline Window &get_window()
+    {
+        return *m_window;
+    }
 
-				static Application* s_instance;
-		};
+  private:
+    bool on_window_close(WindowCloseEvent &e);
 
-		Application* create_application();
-}
+    std::unique_ptr<Window> m_window;
+    bool m_running = true;
+    LayerStack m_layerstack;
+
+    static Application *s_instance;
+};
+
+Application *create_application();
+} // namespace RedBean

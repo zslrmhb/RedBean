@@ -8,3 +8,4 @@ CMakeDoxyfile.in
 CMakeDoxygenDefaults.cmake
 Makefile
 cmake_install.cmake
+.clang-format
